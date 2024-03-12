@@ -1,0 +1,84 @@
+version: "3"
+
+services:
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    # networks:
+    #   - app_network
+  # docs:
+  #   container_name: docs
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/docs/Dockerfile
+  #   restart: always
+  #   ports:
+  #     - 3001:3001
+  #   networks:
+  #     - app_network
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+# networks:
+#   app_network:
+#     external: true
+
+
+
+# # version: "3.9"
+# # services:
+# #   "{{ DOCKER_IMAGE_NAME }}":
+# #     image: "{{ REGISTRY_HOSTNAME }}/{{ DOCKER_IMAGE_NAME }}:{{ ENV }}"
+# #     deploy:
+# #       replicas: 1
+# #       labels:
+# #         ingress.host: cgs-np.wiline.com
+# #         ingress.port: 3000
+# #       update_config:
+# #         parallelism: 2
+# #         delay: 10s
+# #       #restart_policy:
+# #       #  condition: on-failure
+# #       #resources:
+# #       #  limits:
+# #       #    cpus: '1'
+# #       #    memory: 512M
+# #       #    pids: 1
+# #       #  reservations:
+# #       #    cpus: '0.25'
+# #       #    memory: 20M
+# #     #Extrahost configuration
+# #     #extra_hosts:
+# #     #  - "comet.wiline.com:192.168.92.24"
+# #     networks:
+# #       - bridge
+# #     ports: 
+# #       - "9040:3000"
+# #     environment:
+# #       - ENVIRONMENT={{ ENV }}
+# #     env_file:
+# #       - "env.{{ ENV }}"
+
+# # networks:
+# #   bridge:
+# #     external: true
+
+
+
+
+# version: "3"
+
+# services:
+#   web:
+#     container_name: nwa
+#     build:
+#       context: .
+#       dockerfile: ./Dockerfile
+#     restart: always
+#     ports:
+#       - 3000:3000
